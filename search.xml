@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>Unity配置VS Code</title>
+      <link href="/post/e559522c4d76/"/>
+      <url>/post/e559522c4d76/</url>
+      
+        <content type="html"><![CDATA[<h2 id="配置C-运行环境"><a href="#配置C-运行环境" class="headerlink" title="配置C#运行环境"></a>配置C#运行环境</h2><h4 id="下载-NET-SDK并安装-https-dotnet-microsoft-com-zh-cn-download"><a href="#下载-NET-SDK并安装-https-dotnet-microsoft-com-zh-cn-download" class="headerlink" title="下载.NET SDK并安装 https://dotnet.microsoft.com/zh-cn/download"></a>下载.NET SDK并安装 <a href="https://dotnet.microsoft.com/zh-cn/download">https://dotnet.microsoft.com/zh-cn/download</a></h4><h4 id="验证"><a href="#验证" class="headerlink" title="验证"></a>验证</h4><p>通过win + R，输入cmd打开命令提示符，输入</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dotnet --info</span><br></pre></td></tr></table></figure><p>可以查看当前电脑上的.NET SDK 信息。如果没有信息，说明没有安装。</p><h2 id="在VS-Code中配置C-和Unity开发环境"><a href="#在VS-Code中配置C-和Unity开发环境" class="headerlink" title="在VS Code中配置C#和Unity开发环境"></a>在VS Code中配置C#和Unity开发环境</h2><h4 id="安装插件"><a href="#安装插件" class="headerlink" title="安装插件"></a>安装插件</h4><p>在VS Code提供了对Unity的支持后，只需要安装两个插件，一个是Unity，一个Unity Code Snippets。</p><p>其中.NET Install Tool、C#、C# Dev Kit依赖于Unity插件，会被自动安装。</p><h4 id="配置插件"><a href="#配置插件" class="headerlink" title="配置插件"></a>配置插件</h4><p>有时候插件会识别不到本地已经安装的.NET SDK，所以可以直接通过配置文件指定.NET SDK的位置。</p><p>按ctrl + shift + p，然后在输入框中输入settings.json，打开用户设置</p><p>然后在json文件中加入配置项，path是安装目录。</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">&quot;dotnetAcquisitionExtension.existingDotnetPath&quot;: [</span><br><span class="line">    &#123;</span><br><span class="line">        &quot;extensionId&quot;: &quot;ms-dotnettools.csharp&quot;,</span><br><span class="line">        &quot;path&quot;: &quot;C:\\Program Files\\dotnet\\dotnet.exe&quot;</span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">        &quot;extensionId&quot;: &quot;ms-dotnettools.csdevkit&quot;,</span><br><span class="line">        &quot;path&quot;: &quot;C:\\Program Files\\dotnet\\dotnet.exe&quot;</span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">        &quot;extensionId&quot;: &quot;visualstudiotoolsforunity.vstuc&quot;,</span><br><span class="line">        &quot;path&quot;: &quot;C:\\Program Files\\dotnet\\dotnet.exe&quot;</span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">        &quot;extensionId&quot;: &quot;msazurermtools.azurerm-vscode-tools&quot;,</span><br><span class="line">        &quot;path&quot;: &quot;C:\\Program Files\\dotnet\\dotnet.exe&quot;</span><br><span class="line">    &#125;</span><br><span class="line">],</span><br></pre></td></tr></table></figure><h2 id="在Unity中将VS-Code设置为默认编辑器"><a href="#在Unity中将VS-Code设置为默认编辑器" class="headerlink" title="在Unity中将VS Code设置为默认编辑器"></a>在Unity中将VS Code设置为默认编辑器</h2><h4 id="更新插件"><a href="#更新插件" class="headerlink" title="更新插件"></a>更新插件</h4><p>点击Window &#x2F; Package Manage打开界面，找到Visual Studio Editor并将其更新到最新版本。</p><h4 id="修改默认编辑器"><a href="#修改默认编辑器" class="headerlink" title="修改默认编辑器"></a>修改默认编辑器</h4><p>点击Edit &#x2F; Preferences 打开界面，再选择External Tools选项，修改脚本编辑器为VS Code。</p><h2 id="使用断点调试"><a href="#使用断点调试" class="headerlink" title="使用断点调试"></a>使用断点调试</h2><h4 id="在VS-Code中启动"><a href="#在VS-Code中启动" class="headerlink" title="在VS Code中启动"></a>在VS Code中启动</h4><h4 id="在Unity中同意启用"><a href="#在Unity中同意启用" class="headerlink" title="在Unity中同意启用"></a>在Unity中同意启用</h4><h4 id="打断点。鼠标放到代码的最左边单击出现红点表示成功。"><a href="#打断点。鼠标放到代码的最左边单击出现红点表示成功。" class="headerlink" title="打断点。鼠标放到代码的最左边单击出现红点表示成功。"></a>打断点。鼠标放到代码的最左边单击出现红点表示成功。</h4><h4 id="最后运行Unity就行，程序会停在断点处。"><a href="#最后运行Unity就行，程序会停在断点处。" class="headerlink" title="最后运行Unity就行，程序会停在断点处。"></a>最后运行Unity就行，程序会停在断点处。</h4><p>左上可以查看当前所有的局部变量信息。</p><p>中上可以控制程序走向。</p><p>鼠标直接放到变量上可以直接显示该变量的信息。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 游戏引擎 </category>
+          
+          <category> Unity </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Unity </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>C#代码规范</title>
       <link href="/post/d08f3958b61a/"/>
       <url>/post/d08f3958b61a/</url>
