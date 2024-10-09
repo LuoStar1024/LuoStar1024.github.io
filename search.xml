@@ -4,6 +4,35 @@
   
     
     <entry>
+      <title>LFramework解析：开篇</title>
+      <link href="/post/063f864d6d92/"/>
+      <url>/post/063f864d6d92/</url>
+      
+        <content type="html"><![CDATA[<h2 id="绪论"><a href="#绪论" class="headerlink" title="绪论"></a>绪论</h2><p>目前其实已经有很多客户端框架了，但每个人对不同的框架有不同的看法，所以打算整合不同框架中认为更好模块。也是为了整理目前所学的所有知识吧。</p><p>本LFramework框架使用GameFramework框架的架构，即框架分成纯C#部分LFramework实现核心逻辑，并对外提供接口。LFrameworkUnity负责实现接口并提供Unity编辑器扩展。战斗部分目前不了解，先按我的理解划分一下LFramework，层层递进。</p><h3 id="非热更新"><a href="#非热更新" class="headerlink" title="非热更新"></a>非热更新</h3><h4 id="LFramework"><a href="#LFramework" class="headerlink" title="LFramework"></a>LFramework</h4><p>框架的最底层，纯C#实现。分为Core和Manager两部分。</p><h5 id="LFramework-Core"><a href="#LFramework-Core" class="headerlink" title="LFramework.Core"></a>LFramework.Core</h5><p>这部分是与引擎无关的模块核心。包括：事件、引用池、定时器、有限状态机、数据节点、数据表、日志。</p><h5 id="LFramework-Manager"><a href="#LFramework-Manager" class="headerlink" title="LFramework.Manager"></a>LFramework.Manager</h5><p>这部分将Core里的模块进行实例化并是其他所有模块的纯C#部分，并抛出需要实现的接口。其他模块包括：调试器、本地化、对象池、资源、场景、配置、声音、界面、流程</p><h4 id="LFrameworkUnity"><a href="#LFrameworkUnity" class="headerlink" title="LFrameworkUnity"></a>LFrameworkUnity</h4><p>负责将Core中的模块进行实例化、抛出实例化接口，实现Manager中的接口。提供Unity编辑器扩展。</p><h4 id="GameMain"><a href="#GameMain" class="headerlink" title="GameMain"></a>GameMain</h4><p>负责对LFrameworkUnity进行初始化和游戏开始流程。</p><h3 id="热更新"><a href="#热更新" class="headerlink" title="热更新"></a>热更新</h3><p>战斗部分仅仅是进行划分，具体实现不在本系列当中。</p><h4 id="LFrameworkBattle"><a href="#LFrameworkBattle" class="headerlink" title="LFrameworkBattle"></a>LFrameworkBattle</h4><p>独立的战斗框架，负责将Core中的模块进行实例化，提供一个战斗框架。与LFrameworkUnity算是同级。只是战斗部分会放到服务器上运行，所以不能与Unity关联。</p><h4 id="GameView"><a href="#GameView" class="headerlink" title="GameView"></a>GameView</h4><p>游戏中通过Unity显示的部分，只会通过GameMain进行框架的接口调用，不与其他非热更新模块关联。</p><h4 id="BattleLogic"><a href="#BattleLogic" class="headerlink" title="BattleLogic"></a>BattleLogic</h4><p>游戏中的战斗模块，提供战斗的初始化和推进，可直接运行在服务器上。表现上，通过GameView进行表现？</p><h4 id="Config、Proto"><a href="#Config、Proto" class="headerlink" title="Config、Proto"></a>Config、Proto</h4><p>目前暂不知道如何划分。</p><h2 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h2><ul><li><p>LFramework解析：事件（Event）</p></li><li><p>LFramework解析：引用池（Reference Pool）</p></li><li><p>LFramework解析：定时器（Timer）</p></li><li><p>LFramework解析：有限状态机（Fsm）</p></li><li><p>LFramework解析：数据节点（Data Node）</p></li><li><p>LFramework解析：数据表（Data Table）</p></li><li><p>LFramework解析：日志（Log）</p></li><li><p>LFramework解析：调试器（Debugger）</p></li><li><p>LFramework解析：本地化（Localization）</p></li><li><p>LFramework解析：对象池（Object Pool）</p></li><li><p>LFramework解析：资源（Resources）</p></li><li><p>LFramework解析：场景（Scene）</p></li><li><p>LFramework解析：配置（Setting）</p></li><li><p>LFramework解析：声音（Sound）</p></li><li><p>LFramework解析：界面（UI）</p></li><li><p>LFramework解析：流程（Procedure）</p></li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> 客户端 </category>
+          
+          <category> LFramework </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Unity </tag>
+            
+            <tag> LFramework </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Unity配置VS Code</title>
       <link href="/post/e559522c4d76/"/>
       <url>/post/e559522c4d76/</url>
