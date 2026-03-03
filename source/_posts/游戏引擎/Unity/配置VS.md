@@ -1,11 +1,11 @@
 ---
 title: Unity配置VS Code
-date: 2024-08-25 10:57:29
 tags:
-    - Unity
+  - Unity
+  - VS Code
 categories:
-    - 游戏引擎
-    - Unity
+  - Unity
+date: 2024-08-25 10:57:29
 ---
 
 ## 配置C#运行环境
