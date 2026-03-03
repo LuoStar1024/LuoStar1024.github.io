@@ -13,8 +13,6 @@
       
       <categories>
           
-          <category> 客户端 </category>
-          
           <category> LFramework </category>
           
       </categories>
@@ -42,8 +40,6 @@
       
       <categories>
           
-          <category> 游戏引擎 </category>
-          
           <category> Unity </category>
           
       </categories>
@@ -52,6 +48,8 @@
         <tags>
             
             <tag> Unity </tag>
+            
+            <tag> VS Code </tag>
             
         </tags>
       
