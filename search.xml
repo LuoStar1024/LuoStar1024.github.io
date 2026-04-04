@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>Git设置SSH和Https代理</title>
+      <link href="/post/75515b067946/"/>
+      <url>/post/75515b067946/</url>
+      
+        <content type="html"><![CDATA[<p>先假设本地代理端口：7079</p><h2 id="HTTPS-方式代理"><a href="#HTTPS-方式代理" class="headerlink" title="HTTPS 方式代理"></a>HTTPS 方式代理</h2><h3 id="全局代理"><a href="#全局代理" class="headerlink" title="全局代理"></a>全局代理</h3><p>设置代理配置：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># 设置 HTTP 代理</span><br><span class="line">git config --global http.proxy http://127.0.0.1:7079</span><br><span class="line"></span><br><span class="line"># 设置 HTTPS 代理</span><br><span class="line">git config --global https.proxy http://127.0.0.1:7079</span><br></pre></td></tr></table></figure><p>验证是否成功：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --get http.proxy</span><br><span class="line">git config --get https.proxy</span><br></pre></td></tr></table></figure><p>取消代理配置：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global --unset http.proxy</span><br><span class="line">git config --global --unset https.proxy</span><br></pre></td></tr></table></figure><h3 id="特点网站代理"><a href="#特点网站代理" class="headerlink" title="特点网站代理"></a>特点网站代理</h3><p>例如github：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"># 设置代理</span><br><span class="line">git config --global http.https://github.com.proxy http://127.0.0.1:7079</span><br><span class="line"></span><br><span class="line"># 是否生效</span><br><span class="line">git config --global --get-regexp proxy</span><br><span class="line"></span><br><span class="line"># 取消代理</span><br><span class="line">git config --global --unset http.https://github.com.proxy</span><br></pre></td></tr></table></figure><h2 id="SSH-方式代理"><a href="#SSH-方式代理" class="headerlink" title="SSH 方式代理"></a>SSH 方式代理</h2><p>编辑 <code>\x7e/.ssh/config</code>，添加以下内容。没有该文件就新建，无后缀名。</p><h3 id="如果-7079-是-HTTP-代理"><a href="#如果-7079-是-HTTP-代理" class="headerlink" title="如果 7079 是 HTTP 代理"></a>如果 <code>7079</code> 是 HTTP 代理</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Host github.com</span><br><span class="line">  HostName ssh.github.com</span><br><span class="line">  Port 443</span><br><span class="line">  User git</span><br><span class="line">  ProxyCommand connect.exe -H 127.0.0.1:7079 %h %p</span><br></pre></td></tr></table></figure><h3 id="如果-7079-是-SOCKS5-代理"><a href="#如果-7079-是-SOCKS5-代理" class="headerlink" title="如果 7079 是 SOCKS5 代理"></a>如果 <code>7079</code> 是 SOCKS5 代理</h3><p>如果软件上显示为混合代理，也使用这个。</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Host github.com</span><br><span class="line">  HostName ssh.github.com</span><br><span class="line">  Port 443</span><br><span class="line">  User git</span><br><span class="line">  ProxyCommand connect.exe -S 127.0.0.1:7079 %h %p</span><br></pre></td></tr></table></figure><h3 id="测试-SSH"><a href="#测试-SSH" class="headerlink" title="测试 SSH"></a>测试 SSH</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh -T git@github.com</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> 其他技术 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Git </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>LFramework解析：开篇</title>
       <link href="/post/063f864d6d92/"/>
       <url>/post/063f864d6d92/</url>
